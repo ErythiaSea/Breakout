@@ -46,6 +46,13 @@ void PowerupManager::update(float dt)
     }
 }
 
+void PowerupManager::reset()
+{
+    _powerupInEffect.reset();
+    _powerups.clear();
+    _powerupTimeExtendCount = 0;
+}
+
 void PowerupManager::render()
 {
     for (auto& powerup : _powerups)

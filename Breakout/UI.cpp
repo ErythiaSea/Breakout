@@ -85,3 +85,10 @@ void UI::render()
 		_window->draw(life);
 	}
 }
+
+void UI::resetLives()
+{
+	for (auto &life : _lives) {
+		life.setFillColor(sf::Color::Red);
+	}
+}

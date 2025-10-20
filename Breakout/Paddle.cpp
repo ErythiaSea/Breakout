@@ -68,6 +68,11 @@ void Paddle::update(float dt)
     }
 }
 
+void Paddle::reset()
+{
+    _sprite.setPosition((_window->getSize().x - _width) / 2.0f, _window->getSize().y - 50.0f);
+}
+
 void Paddle::render()
 {
     _window->draw(_sprite);

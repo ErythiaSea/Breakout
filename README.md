@@ -40,3 +40,9 @@ fire ball (green)
 ~1:10 - add powerup that extends the timer for future powerups
 
 ~2:00 - add screenshake on life loss
+
+~2:05 - remove strange memory leak in PowerupFireBall.cpp
+
+~2:45 - add ability to reset game on death/win
+
+~2:47 - improve powerup spawn time logic

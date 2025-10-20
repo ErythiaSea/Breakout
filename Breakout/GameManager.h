@@ -14,6 +14,7 @@ class GameManager {
 public:
     GameManager(sf::RenderWindow* window);
     void initialize();
+    void newLevel();
     void update(float dt);
     void loseLife();
     void render();
@@ -33,7 +34,7 @@ private:
     bool _pause;
     float _pauseHold;
     float _time;
-    float _timeLastPowerupSpawned;
+    float _powerupTimer;
     int _lives;
     bool _levelComplete;
     std::pair<POWERUPS, float> _powerupInEffect;
