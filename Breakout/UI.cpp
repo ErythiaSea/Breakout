@@ -60,9 +60,14 @@ void UI::updatePowerupText(std::pair<POWERUPS, float> powerup)
 		_powerupText.setString("fire " + oss.str());
 		_powerupText.setFillColor(extraBallEffectsColour);
 		break;
+	case timeExtend:
+		_powerupText.setString("powerup\ntimes\n+25%!");
+		_powerupText.setFillColor(timeExtendEffectsColour);
+		break;
 	case none:
 		_powerupText.setString("");
-		
+		break;
+	default:
 		break;
 	}
 }

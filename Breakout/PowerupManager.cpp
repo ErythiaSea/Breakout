@@ -58,7 +58,7 @@ void PowerupManager::spawnPowerup()
 {
 
     // TODO finish this.
-    switch (rand() % 5)
+    switch (rand() % 6)
     {
     case 0:
         _powerups.push_back(new PowerupBigPaddle(_window, _paddle, _ball));
@@ -75,6 +75,9 @@ void PowerupManager::spawnPowerup()
     case 4:
         _powerups.push_back(new PowerupFireBall(_window, _paddle, _ball));
         break;
+    case 5:
+        _powerups.push_back(new PowerupTimeExtender(_window, _paddle, _ball));
+        break;
     default:
        break;
     }
@@ -88,7 +91,18 @@ void PowerupManager::checkCollision()
 
         if (powerup->checkCollisionWithPaddle())
         {
-            _powerupInEffect = powerup->applyEffect();
+            auto acquiredPowerup = powerup->applyEffect();
+
+            // time extender is not temporarily "in effect" so we need to treat it differently
+            if (acquiredPowerup.first == timeExtend) {
+                _powerupTimeExtendCount++;
+            }
+            else {
+                // add an additional 25% per time extender powerup
+                // don't do this for time extender powerups, so that the ui message displays for a fixed length
+                acquiredPowerup.second *= 1.0f + (_powerupTimeExtendCount * 0.25f);
+            }
+            _powerupInEffect = acquiredPowerup;
             powerup->setAlive(false);
         }
     }

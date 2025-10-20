@@ -48,7 +48,12 @@ void Paddle::movePaddle(float dt)
         else if (mouseX < position && position > 0) {
             _sprite.move(sf::Vector2f(dt * -PADDLE_SPEED, 0));
         }
+
+        return;
     }
+
+    moveLeft(dt);
+    moveRight(dt);
 }
 
 void Paddle::update(float dt)

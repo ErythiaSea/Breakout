@@ -37,3 +37,5 @@ fire ball (green)
 
 ~0:30 - add mouse control for paddle
 
+~1:10 - add powerup that extends the timer for future powerups
+

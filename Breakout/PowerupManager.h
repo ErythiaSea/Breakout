@@ -9,6 +9,7 @@
 #include "PowerupSlowBall.h"
 #include "PowerupFastBall.h"
 #include "PowerupFireBall.h"
+#include "PowerupTimeExtender.h"
 #include "Paddle.h"
 #include "Ball.h"
 
@@ -32,4 +33,5 @@ private:
     Ball* _ball;
     std::vector<PowerupBase*> _powerups;            // used to manage deletion.
     std::optional<std::pair<POWERUPS, float>> _powerupInEffect;    // used for gameManager to get reference.
+    int _powerupTimeExtendCount = 0;
 };
