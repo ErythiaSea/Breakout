@@ -96,7 +96,7 @@ void GameManager::update(float dt)
     _time += dt;
     _powerupTimer += dt;
 
-    if ((_powerupTimer > POWERUP_FREQUENCY) && rand()%700 == 0) // TODO parameterise
+    if ((_powerupTimer > POWERUP_FREQUENCY) && rand() % POWERUP_CHANCE == 0)
     {
         _powerupManager->spawnPowerup();
         _powerupTimer = 0;

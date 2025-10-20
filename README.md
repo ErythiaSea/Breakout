@@ -48,3 +48,5 @@ fire ball (green)
 ~2:47 - improve powerup spawn time logic
 
 ~3:10 - fix timer extension powerup, now powerups actually get the time extension
+
+~3:15 - actually parameterize powerup spawn
