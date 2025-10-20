@@ -6,7 +6,7 @@ PowerupTimeExtender::PowerupTimeExtender(sf::RenderWindow* window, Paddle* paddl
 	_sprite.setFillColor(timeExtendEffectsColour);
 }
 
-std::pair<POWERUPS, float> PowerupTimeExtender::applyEffect()
+std::pair<POWERUPS, float> PowerupTimeExtender::applyEffect(float timeMult)
 {
 	return { timeExtend, 1.5f };
 }

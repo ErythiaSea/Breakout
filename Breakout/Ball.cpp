@@ -104,7 +104,7 @@ void Ball::respawn()
 void Ball::reset()
 {
     respawn();
-    setFireBall(false);
+    setFireBall(0.0f);
     _isAlive = true;
     _timeWithPowerupEffect = 0.0f;
 }

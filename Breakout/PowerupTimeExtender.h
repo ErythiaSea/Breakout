@@ -7,6 +7,6 @@ public:
     PowerupTimeExtender(sf::RenderWindow* window, Paddle* paddle, Ball* ball);
     ~PowerupTimeExtender(){};
 
-    std::pair<POWERUPS, float> applyEffect() override; // Method to apply the power-up effect
+    std::pair<POWERUPS, float> applyEffect(float timeMult) override; // Method to apply the power-up effect
 };
 

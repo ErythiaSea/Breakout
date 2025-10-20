@@ -37,7 +37,7 @@ fire ball (green)
 
 ~0:30 - add mouse control for paddle
 
-~1:10 - add powerup that extends the timer for future powerups
+~1:10 - begin to add powerup that extends the timer for future powerups. right now only ui timer properly updates
 
 ~2:00 - add screenshake on life loss
 
@@ -46,3 +46,5 @@ fire ball (green)
 ~2:45 - add ability to reset game on death/win
 
 ~2:47 - improve powerup spawn time logic
+
+~3:10 - fix timer extension powerup, now powerups actually get the time extension

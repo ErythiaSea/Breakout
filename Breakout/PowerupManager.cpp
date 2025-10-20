@@ -98,16 +98,11 @@ void PowerupManager::checkCollision()
 
         if (powerup->checkCollisionWithPaddle())
         {
-            auto acquiredPowerup = powerup->applyEffect();
+            auto acquiredPowerup = powerup->applyEffect(1.0f + (_powerupTimeExtendCount * 0.25f));
 
-            // time extender is not temporarily "in effect" so we need to treat it differently
+            // increment number of time extensions when a time extender is collected
             if (acquiredPowerup.first == timeExtend) {
                 _powerupTimeExtendCount++;
-            }
-            else {
-                // add an additional 25% per time extender powerup
-                // don't do this for time extender powerups, so that the ui message displays for a fixed length
-                acquiredPowerup.second *= 1.0f + (_powerupTimeExtendCount * 0.25f);
             }
             _powerupInEffect = acquiredPowerup;
             powerup->setAlive(false);
