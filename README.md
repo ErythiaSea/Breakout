@@ -39,3 +39,4 @@ fire ball (green)
 
 ~1:10 - add powerup that extends the timer for future powerups
 
+~2:00 - add screenshake on life loss

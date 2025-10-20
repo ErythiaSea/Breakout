@@ -20,6 +20,8 @@ public:
     void levelComplete();
     void powerupEffect(POWERUPS pu, float t);
 
+    void screenShake(float dt);
+
     Paddle* getPaddle() const;
     BrickManager* getBrickManager() const;
     PowerupManager* getPowerupManager() const;
@@ -47,6 +49,10 @@ private:
     MessagingSystem* _messagingSystem;
     UI* _ui;
 
+    // for screenshake
+    float trauma = 0.0f;
+
     static constexpr float PAUSE_TIME_BUFFER = 0.5f;
     static constexpr float POWERUP_FREQUENCY = 7.5f;    // time between minimum powerup spawn
+    static const inline sf::Vector2f MAX_OFFSET = sf::Vector2f({ 5.0f, 4.0f });
 };

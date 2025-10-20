@@ -34,6 +34,9 @@ void GameManager::update(float dt)
     _ui->updatePowerupText(_powerupInEffect);
     _powerupInEffect.second -= dt;
     
+    // handle screenshake
+    // doing it here so that screenshake completes even if game over
+    screenShake(dt);
 
     if (_lives <= 0)
     {
@@ -95,9 +98,8 @@ void GameManager::loseLife()
     sf::Vector2f p = _window->getView().getCenter();
     p.x += 1.0f;
 
-    // TODO screen shake.
-    //sf::View v = _window->getView();
-    //_window->setView(v);
+    // TODO screen shake (done)
+    trauma = 1.0f;
 }
 
 void GameManager::render()
@@ -113,6 +115,22 @@ void GameManager::render()
 void GameManager::levelComplete()
 {
     _levelComplete = true;
+}
+
+void GameManager::screenShake(float dt)
+{
+    if (trauma <= 0.0f) return;
+    trauma -= dt;
+    float power = pow(trauma, 2);
+
+    sf::View v = _window->getView();
+    float xOff = (float)((rand() % 200) - 100) / 100.0f;
+    float yOff = (float)((rand() % 200) - 100) / 100.0f;
+
+    float xPosition = 500.0f + (MAX_OFFSET.x * power * xOff);
+    float yPosition = 400.0f + (MAX_OFFSET.y * power * yOff);
+    v.setCenter({ xPosition, yPosition });
+    _window->setView(v);
 }
 
 sf::RenderWindow* GameManager::getWindow() const { return _window; }
